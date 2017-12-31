@@ -14,6 +14,7 @@
   "author": "P. Vos",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^4.14.0",
     "express": "^4.16.2"
   }
 }
