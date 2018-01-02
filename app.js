@@ -1,11 +1,27 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+	res.header('Acces-Control-Alllow-Origin', '*');
+	res.header(
+		'Acces-Control-Allow-Headers',
+		'origin, x-Requested-With, Content-Type, Accept, Authorization'
+	);
+	if (req.method === 'OPTIONS') {
+		res.header('Acces-Control-Allow-Methods', 'Put, POST, PATCH, DELETE, GET');
+		return res.status(200).json({});
+	}
+	next();
+});
 
 // routes which handles requests
 app.use('/products', productRoutes);
