@@ -11,6 +11,7 @@ const orderRoutes = require('./api/routes/orders');
 mongoose.connect('mongodb://localhost:27017/node-rest-shop');
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
