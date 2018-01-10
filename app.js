@@ -12,7 +12,6 @@ const userRoutes = require('./api/routes/user');
 mongoose.connect('mongodb://localhost:27017/node-rest-shop');
 
 app.use(morgan('dev'));
-app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
   res.header('Acces-Control-Alllow-Origin', '*');
   res.header(
     'Acces-Control-Allow-Headers',
-    'origin, x-Requested-With, Content-Type, Accept, Authorization',
+    'origin, x-Requested-With, Content-Type, Accept, Authorization'
   );
   if (req.method === 'OPTIONS') {
     res.header('Acces-Control-Allow-Methods', 'Put, POST, PATCH, DELETE, GET');
