@@ -15,7 +15,7 @@
   "author": "P. Vos",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
